@@ -9,8 +9,8 @@
 import Foundation
 
 protocol AuthViewModelProtocol {
-    func login(success:()?, failure:()?)
-    func signUp(success:()?, failure:()?)
+    func login(email: String, password: String, success: (()->Void)?, failure: ((String)->Void)?)
+    func signUp(email: String, name: String, password: String, success: (()->Void)?, failure: ((String)->Void)?)
 }
 
 class AuthViewModel {
@@ -26,11 +26,19 @@ class AuthViewModel {
 }
 
 extension AuthViewModel: AuthViewModelProtocol {
-    func login(success: ()?, failure: ()?) {
-        
+    func login(email: String, password: String, success: (()->Void)?, failure: ((String)->Void)?) {
+        APIManager.shared.login(email: email, password: password, success: {
+            success?()
+        }, failure: { (error) in
+            failure?(error)
+        })
     }
     
-    func signUp(success: ()?, failure: ()?) {
-        
+    func signUp(email: String, name: String, password: String, success: (()->Void)?, failure: ((String)->Void)?) {
+        APIManager.shared.signUp(email: email, name: name, password: password, success: {
+            success?()
+        }, failure: { (error) in
+            failure?(error)
+        })
     }
 }

@@ -78,13 +78,50 @@ class AuthViewController: UIViewController {
         repeatPasswordTextField.tag = vm.authType == .login ? 0 : 4
     }
     
+    private func checkAllFields() -> Bool {
+        guard let vm = viewModel else { return false }
+        
+        if (vm.authType == .login) && (emailTextField.text != nil && passwordTextField.text != nil) {
+            return true
+        } else if (vm.authType == .signup) && (emailTextField.text != nil && passwordTextField.text != nil && nameTextField.text != nil && repeatPasswordTextField.text != nil) {
+            return true
+        }
+        
+        return false
+    }
+    
     // MARK: - IBActions
     @IBAction func onShowPasswordTapped(_ sender: UIButton) {
         showPwd.toggle()
     }
     
     @IBAction func onSubmitTapped(_ sender: UIButton) {
-        
+        if checkAllFields() {
+            guard let vm = viewModel else { return }
+            
+            guard let email = emailTextField.text else { return }
+            guard let password = passwordTextField.text else { return }
+            
+            if vm.authType == .login {
+                viewModel?.login(email: email, password: password, success: {
+                    self.performSegue(withIdentifier: Segues.ToMain, sender: self)
+                }, failure: { (error) in
+                    
+                })
+            } else {
+                guard let name = nameTextField.text else { return }
+                
+                if passwordTextField.text == repeatPasswordTextField.text {
+                    viewModel?.signUp(email: email, name: name, password: password, success: {
+                        self.performSegue(withIdentifier: Segues.ToMain, sender: self)
+                    }, failure: { (error) in
+                        
+                    })
+                } else {
+                    print("action about passwords mismatch")
+                }
+            }
+        }
     }
 }
 
