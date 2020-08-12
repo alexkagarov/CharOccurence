@@ -106,7 +106,7 @@ class AuthViewController: UIViewController {
                 viewModel?.login(email: email, password: password, success: {
                     self.performSegue(withIdentifier: Segues.ToMain, sender: self)
                 }, failure: { (error) in
-                    
+                    self.present(ErrorAlertManager.shared.alert(error), animated: true, completion: nil)
                 })
             } else {
                 guard let name = nameTextField.text else { return }
@@ -115,10 +115,10 @@ class AuthViewController: UIViewController {
                     viewModel?.signUp(email: email, name: name, password: password, success: {
                         self.performSegue(withIdentifier: Segues.ToMain, sender: self)
                     }, failure: { (error) in
-                        
+                        self.present(ErrorAlertManager.shared.alert(error), animated: true, completion: nil)
                     })
                 } else {
-                    print("action about passwords mismatch")
+                    self.present(ErrorAlertManager.shared.alert("Passwords don't match. Please try again!"), animated: true, completion: nil)
                 }
             }
         }

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func checkAuth() {
-        let storyboard = UIStoryboard(name: APIManager.shared.checkApiKey() ? "TabBar" : "Registration", bundle: nil)
+        let storyboard = UIStoryboard(name: APIManager.shared.checkApiKey() ? "Main" : "Auth", bundle: nil)
         
         let initialVC = storyboard.instantiateViewController(withIdentifier: "Initial")
         

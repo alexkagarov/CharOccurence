@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct URLs {
     static let Server = "https://apiecho.cf/api"
@@ -22,8 +23,14 @@ struct URLs {
 struct Segues {
     static let ToAuthType = "ToAuthTypeSegue"
     static let ToMain = "ToMainSegue"
+    static let ToAuth = "ToAuthSegue"
 }
 
 struct UDKeys {
     static let Token = "UserDefaults.AccessToken"
+}
+
+struct CustomColors {
+    static let WhiteToBlack = UIColor(named: "White-to-Black")
+    static let BlackToWhite = UIColor(named: "Black-to-White")
 }

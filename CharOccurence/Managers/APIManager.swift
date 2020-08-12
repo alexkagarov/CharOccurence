@@ -23,23 +23,14 @@ class APIManager: NSObject {
     }
     
     private override init() {
-        
+        super.init()
     }
     
     static let shared = APIManager()
     
-    private func sendRequest(url: String, method: Alamofire.HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding, success: ((Data)->Void)?, failure: ((AFError)->Void)?) {
+    private func sendRequest(url: String, method: Alamofire.HTTPMethod, parameters: Parameters?, headers: HTTPHeaders?, encoding: ParameterEncoding, success: ((Data)->Void)?, failure: ((AFError)->Void)?) {
             
         guard let correctedURLString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-        
-        var headers = HTTPHeaders()
-        
-        if token != "" {
-            headers = ["Content-Type": "application/json", "Accept": "application/json", "Authorization": "Bearer \(token)"]
-        } else {
-            headers = ["Content-Type": "application/json", "Accept": "application/json"]
-        }
-        
         
         print("*** REQUEST: \(correctedURLString)")
         Alamofire.Session.default.session.configuration.httpCookieStorage = HTTPCookieStorage.shared
@@ -96,20 +87,27 @@ extension APIManager {
         
         let parameters = ["email": email, "name": name, "password": password]
         
-        sendRequest(url: url, method: .post, parameters: parameters, encoding: URLEncoding.default, success: { (data) in
+        sendRequest(url: url, method: .post, parameters: parameters, headers: nil, encoding: JSONEncoding.default, success: { (data) in
             let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
             
             do {
                 let response = try decoder.decode(UserResponseModel.self, from: data)
                 
-                if let user = response.data {
-                    self.user = user
-                    
-                    success?()
+                if response.success {
+                    if let user = response.data {
+                        self.user = user
+                        
+                        if let token = user.accessToken {
+                            UserDefaults.standard.set(token, forKey: UDKeys.Token)
+                        }
+                        
+                        success?()
+                    }
                 } else {
                     self.cancelAllTasks()
                     if let errors = response.errors {
-                        let errorsString = errors.compactMap({ $0.message }).joined(separator: "; ")
+                        let errorsString = errors.compactMap({ $0.message }).joined(separator: " ")
                         print(errorsString)
                         
                         failure?(errorsString)
@@ -117,7 +115,6 @@ extension APIManager {
                         failure?("Unknown error!!!")
                     }
                 }
-                
             } catch let error {
                 print(error)
                 self.cancelAllTasks()
@@ -135,24 +132,27 @@ extension APIManager {
         
         let parameters = ["email": email, "password": password]
         
-        sendRequest(url: url, method: .post, parameters: parameters, encoding: URLEncoding.default, success: { (data) in
+        sendRequest(url: url, method: .post, parameters: parameters, headers: nil, encoding: JSONEncoding.default, success: { (data) in
             let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
             
             do {
                 let response = try decoder.decode(UserResponseModel.self, from: data)
                 
-                if let user = response.data {
-                    self.user = user
-                    
-                    if let token = user.accessToken {
-                        UserDefaults.standard.set(token, forKey: UDKeys.Token)
+                if response.success {
+                    if let user = response.data {
+                        self.user = user
+                        
+                        if let token = user.accessToken {
+                            UserDefaults.standard.set(token, forKey: UDKeys.Token)
+                        }
+                        
+                        success?()
                     }
-                    
-                    success?()
                 } else {
                     self.cancelAllTasks()
                     if let errors = response.errors {
-                        let errorsString = errors.compactMap({ $0.message }).joined(separator: "; ")
+                        let errorsString = errors.compactMap({ $0.message }).joined(separator: " ")
                         print(errorsString)
                         
                         failure?(errorsString)
@@ -160,7 +160,6 @@ extension APIManager {
                         failure?("Unknown error!!!")
                     }
                 }
-                
             } catch let error {
                 print(error)
                 self.cancelAllTasks()
@@ -173,24 +172,27 @@ extension APIManager {
         })
     }
     
-    func logOut(success: (()->Void)?, failure: ((String)->Void)?) {
-        let url = URLs.Server + URLs.Logout
+    func logOut(success: (()->Void)?, failure: ((String)->Void)?) { // API returns error 500 on logout, so I won't logout on server side, though I wanted to
+        /*let url = URLs.Server + URLs.Logout
         
-        sendRequest(url: url, method: .post, parameters: nil, encoding: URLEncoding.default, success: { (data) in
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(token)"]
+        
+        sendRequest(url: url, method: .post, parameters: nil, headers: headers, encoding: JSONEncoding.default, success: { (data) in
             let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
             
             do {
                 let response = try decoder.decode(TextResponseModel.self, from: data)
                 
-                if let _ = response.data {
+                if response.success {*/
                     self.user = nil
                     UserDefaults.standard.set("", forKey: UDKeys.Token)
                     
                     success?()
-                } else {
+                /*} else {
                     self.cancelAllTasks()
                     if let errors = response.errors {
-                        let errorsString = errors.compactMap({ $0.message }).joined(separator: "; ")
+                        let errorsString = errors.compactMap({ $0.message }).joined(separator: " ")
                         print(errorsString)
                         
                         failure?(errorsString)
@@ -208,7 +210,7 @@ extension APIManager {
         }, failure: { (error) in
             self.cancelAllTasks()
             failure?(error.localizedDescription)
-        })
+        })*/
     }
 }
 
@@ -218,18 +220,23 @@ extension APIManager {
         
         let parameters = ["Locale": locale]
         
-        sendRequest(url: url, method: .get, parameters: parameters, encoding: URLEncoding.default, success: { (data) in
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(token)"]
+        
+        sendRequest(url: url, method: .get, parameters: parameters, headers: headers, encoding: URLEncoding.default, success: { (data) in
             let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
             
             do {
                 let response = try decoder.decode(TextResponseModel.self, from: data)
                 
-                if let text = response.data {
-                    success?(text)
+                if response.success {
+                    if let text = response.data {
+                        success?(text)
+                    }
                 } else {
                     self.cancelAllTasks()
                     if let errors = response.errors {
-                        let errorsString = errors.compactMap({ $0.message }).joined(separator: "; ")
+                        let errorsString = errors.compactMap({ $0.message }).joined(separator: " ")
                         print(errorsString)
                         
                         failure?(errorsString)
@@ -237,7 +244,6 @@ extension APIManager {
                         failure?("Unknown error!!!")
                     }
                 }
-                
             } catch let error {
                 print(error)
                 self.cancelAllTasks()

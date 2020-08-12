@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CharsOccurenceHeader" customModule="CharOccurence" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5cj-a1-tgE">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Char" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRQ-nm-EtM">
+                            <rect key="frame" x="18" y="10.5" width="37.5" height="19.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Occurence" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wE0-iy-mpx">
+                            <rect key="frame" x="311.5" y="10.5" width="84.5" height="19.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="White-to-Black"/>
+                    <constraints>
+                        <constraint firstItem="wE0-iy-mpx" firstAttribute="centerY" secondItem="5cj-a1-tgE" secondAttribute="centerY" id="OXG-mM-gbe"/>
+                        <constraint firstItem="QRQ-nm-EtM" firstAttribute="centerY" secondItem="5cj-a1-tgE" secondAttribute="centerY" id="Qrz-Uk-BVC"/>
+                        <constraint firstItem="QRQ-nm-EtM" firstAttribute="leading" secondItem="5cj-a1-tgE" secondAttribute="leading" constant="18" id="Tgu-es-EmL"/>
+                        <constraint firstAttribute="trailing" secondItem="wE0-iy-mpx" secondAttribute="trailing" constant="18" id="th9-Ja-c2r"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="5cj-a1-tgE" secondAttribute="trailing" id="HTg-fG-wsa"/>
+                <constraint firstItem="5cj-a1-tgE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="KAU-b6-SQ9"/>
+                <constraint firstItem="5cj-a1-tgE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hB1-kn-ofX"/>
+                <constraint firstAttribute="bottom" secondItem="5cj-a1-tgE" secondAttribute="bottom" id="xxx-Xe-gBR"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="139" y="116"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="White-to-Black">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
