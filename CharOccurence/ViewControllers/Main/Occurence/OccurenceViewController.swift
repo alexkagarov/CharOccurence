@@ -20,7 +20,6 @@ class OccurenceViewController: UIViewController {
     var isTextVisible: Bool = true {
         didSet {
             tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
-            generatedTextHeaderButton.setTitle(isTextVisible ? "Hide generated text" : "Show generated text", for: .normal)
         }
     }
     
@@ -33,7 +32,8 @@ class OccurenceViewController: UIViewController {
     
     // MARK: - Functions
     private func registerCustomNib() {
-        tableView.register(UINib(nibName: CharsOccurenceHeader.identifier, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: CharsOccurenceHeader.identifier)
+        tableView.register(UINib(nibName: CharsOccurenceHeader.identifier, bundle: nil), forHeaderFooterViewReuseIdentifier: CharsOccurenceHeader.identifier)
+        tableView.register(UINib(nibName: TextHeaderView.identifier, bundle: nil), forHeaderFooterViewReuseIdentifier: TextHeaderView.identifier)
     }
     
     // MARK: - IBActions
@@ -51,10 +51,6 @@ class OccurenceViewController: UIViewController {
         }, failure: { (error) in
             self.present(ErrorAlertManager.shared.alert(error), animated: true, completion: nil)
         })
-    }
-    
-    @IBAction func onHideTextTapped(_ sender: UIButton) {
-        isTextVisible.toggle()
     }
 }
 
@@ -134,7 +130,11 @@ extension OccurenceViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
         case 1:
-            return viewModel.generatedText.count > 1 ? generatedTextHeader : nil
+            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: TextHeaderView.identifier) as? TextHeaderView else { return nil }
+            header.generatedTextHeaderButton.setTitle(isTextVisible ? "Hide generated text" : "Show generated text", for: .normal)
+            header.delegate = self
+            
+            return header
         case 2:
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: CharsOccurenceHeader.identifier) as? CharsOccurenceHeader else { return nil }
             
@@ -180,5 +180,11 @@ extension OccurenceViewController {
     
     @objc private func dismissKeyboard() {
         view.endEditing(true)
+    }
+}
+
+extension OccurenceViewController: TextHeaderViewDelegate {
+    func showTextTapped() {
+        isTextVisible.toggle()
     }
 }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="UfR-lf-ALC" userLabel="Text Header View" customClass="TextHeaderView" customModule="CharOccurence" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jVD-lo-eB8">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <color key="backgroundColor" name="White-to-Black"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ct2-uB-T6E">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="Hide generated text">
+                        <color key="titleColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onShowTextTapped:" destination="UfR-lf-ALC" eventType="touchUpInside" id="eKr-zc-yeC"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Ct2-uB-T6E" firstAttribute="leading" secondItem="lEb-bK-Zvq" secondAttribute="leading" id="0fb-RL-jCY"/>
+                <constraint firstItem="lEb-bK-Zvq" firstAttribute="bottom" secondItem="Ct2-uB-T6E" secondAttribute="bottom" id="4h3-rC-zTx"/>
+                <constraint firstItem="lEb-bK-Zvq" firstAttribute="trailing" secondItem="jVD-lo-eB8" secondAttribute="trailing" id="4ir-7Q-vTR"/>
+                <constraint firstItem="Ct2-uB-T6E" firstAttribute="top" secondItem="lEb-bK-Zvq" secondAttribute="top" id="OKn-Lt-ehg"/>
+                <constraint firstAttribute="bottom" secondItem="jVD-lo-eB8" secondAttribute="bottom" id="OV2-qr-Def"/>
+                <constraint firstItem="lEb-bK-Zvq" firstAttribute="trailing" secondItem="Ct2-uB-T6E" secondAttribute="trailing" id="UYm-4f-lZY"/>
+                <constraint firstItem="jVD-lo-eB8" firstAttribute="top" secondItem="UfR-lf-ALC" secondAttribute="top" id="Ur9-z7-2fI"/>
+                <constraint firstItem="jVD-lo-eB8" firstAttribute="leading" secondItem="lEb-bK-Zvq" secondAttribute="leading" id="hRX-YG-gQw"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="lEb-bK-Zvq"/>
+            <connections>
+                <outlet property="generatedTextHeaderButton" destination="Ct2-uB-T6E" id="eBD-hg-xFN"/>
+            </connections>
+            <point key="canvasLocation" x="138.40000000000001" y="174.06296851574214"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="White-to-Black">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

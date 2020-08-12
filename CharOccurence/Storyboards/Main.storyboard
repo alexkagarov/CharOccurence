@@ -186,43 +186,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="generatedTextHeader" destination="M5c-od-ald" id="33c-1h-iFV"/>
-                        <outlet property="generatedTextHeaderButton" destination="aUJ-pz-iV6" id="RZA-VE-OLR"/>
                         <outlet property="tableView" destination="zO2-oG-U8T" id="PBJ-Sz-PsU"/>
                         <segue destination="2H7-r6-zXN" kind="presentation" identifier="ToAuthSegue" id="kY2-Cz-rx9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="shH-NI-yfB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="M5c-od-ald" userLabel="Text Header View">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUJ-pz-iV6">
-                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <state key="normal" title="Hide generated text">
-                                <color key="titleColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="5"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="onHideTextTapped:" destination="ZvD-Jk-Xml" eventType="touchUpInside" id="eRp-Vp-Vay"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" name="White-to-Black"/>
-                    <constraints>
-                        <constraint firstItem="aUJ-pz-iV6" firstAttribute="top" secondItem="kdv-WX-9sw" secondAttribute="top" id="GpU-6K-kxV"/>
-                        <constraint firstItem="aUJ-pz-iV6" firstAttribute="leading" secondItem="kdv-WX-9sw" secondAttribute="leading" id="PhA-Qu-xIT"/>
-                        <constraint firstItem="kdv-WX-9sw" firstAttribute="bottom" secondItem="aUJ-pz-iV6" secondAttribute="bottom" id="kAT-t2-Svz"/>
-                        <constraint firstItem="kdv-WX-9sw" firstAttribute="trailing" secondItem="aUJ-pz-iV6" secondAttribute="trailing" id="pYk-Lf-8sd"/>
-                    </constraints>
-                    <viewLayoutGuide key="safeArea" id="kdv-WX-9sw"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="983.20000000000005" y="103.89805097451276"/>
         </scene>
@@ -257,9 +225,6 @@
     <resources>
         <namedColor name="Black-to-White">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="White-to-Black">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -20,6 +20,8 @@
 		444D512424E1B1C900FB2400 /* OccurenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444D512324E1B1C900FB2400 /* OccurenceViewController.swift */; };
 		444D512624E1B1DE00FB2400 /* OccurenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444D512524E1B1DE00FB2400 /* OccurenceViewModel.swift */; };
 		444D512B24E1D78A00FB2400 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444D512A24E1D78A00FB2400 /* WelcomeViewController.swift */; };
+		44610B7024E373AE00216775 /* TextHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44610B6F24E373AE00216775 /* TextHeaderView.swift */; };
+		44610B7224E3770B00216775 /* CharsOccurenceHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44610B7124E3770B00216775 /* CharsOccurenceHeader.xib */; };
 		448D8FF624E2F6120091FF27 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D8FF524E2F6120091FF27 /* UserModel.swift */; };
 		448D8FF824E2FA860091FF27 /* UserResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D8FF724E2FA860091FF27 /* UserResponseModel.swift */; };
 		448D8FFA24E2FAC50091FF27 /* ResponseErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D8FF924E2FAC50091FF27 /* ResponseErrorModel.swift */; };
@@ -29,7 +31,7 @@
 		448D900424E32DE10091FF27 /* CharTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D900324E32DE10091FF27 /* CharTableViewCell.swift */; };
 		448D900624E358C90091FF27 /* ErrorAlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D900524E358C90091FF27 /* ErrorAlertManager.swift */; };
 		448D900924E35B070091FF27 /* CharsOccurenceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D900724E35B070091FF27 /* CharsOccurenceHeader.swift */; };
-		448D900C24E35B690091FF27 /* CharsOccurenceHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448D900B24E35B690091FF27 /* CharsOccurenceHeader.xib */; };
+		448D900C24E35B690091FF27 /* TextHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448D900B24E35B690091FF27 /* TextHeaderView.xib */; };
 		48305A19BDAFE1ADE23D851B /* Pods_CharOccurence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 800F526E21CFD4066BD4A6A7 /* Pods_CharOccurence.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		444D512324E1B1C900FB2400 /* OccurenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccurenceViewController.swift; sourceTree = "<group>"; };
 		444D512524E1B1DE00FB2400 /* OccurenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccurenceViewModel.swift; sourceTree = "<group>"; };
 		444D512A24E1D78A00FB2400 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		44610B6F24E373AE00216775 /* TextHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHeaderView.swift; sourceTree = "<group>"; };
+		44610B7124E3770B00216775 /* CharsOccurenceHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharsOccurenceHeader.xib; sourceTree = "<group>"; };
 		448D8FF524E2F6120091FF27 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		448D8FF724E2FA860091FF27 /* UserResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponseModel.swift; sourceTree = "<group>"; };
 		448D8FF924E2FAC50091FF27 /* ResponseErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseErrorModel.swift; sourceTree = "<group>"; };
@@ -58,7 +62,7 @@
 		448D900324E32DE10091FF27 /* CharTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharTableViewCell.swift; sourceTree = "<group>"; };
 		448D900524E358C90091FF27 /* ErrorAlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertManager.swift; sourceTree = "<group>"; };
 		448D900724E35B070091FF27 /* CharsOccurenceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharsOccurenceHeader.swift; sourceTree = "<group>"; };
-		448D900B24E35B690091FF27 /* CharsOccurenceHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharsOccurenceHeader.xib; sourceTree = "<group>"; };
+		448D900B24E35B690091FF27 /* TextHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextHeaderView.xib; sourceTree = "<group>"; };
 		48A7FB3A7949FA0609A73C31 /* Pods-CharOccurence.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharOccurence.release.xcconfig"; path = "Target Support Files/Pods-CharOccurence/Pods-CharOccurence.release.xcconfig"; sourceTree = "<group>"; };
 		491BABAED9594962A5891E38 /* Pods-CharOccurence.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharOccurence.debug.xcconfig"; path = "Target Support Files/Pods-CharOccurence/Pods-CharOccurence.debug.xcconfig"; sourceTree = "<group>"; };
 		800F526E21CFD4066BD4A6A7 /* Pods_CharOccurence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharOccurence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,7 +228,9 @@
 			isa = PBXGroup;
 			children = (
 				448D900724E35B070091FF27 /* CharsOccurenceHeader.swift */,
-				448D900B24E35B690091FF27 /* CharsOccurenceHeader.xib */,
+				44610B6F24E373AE00216775 /* TextHeaderView.swift */,
+				448D900B24E35B690091FF27 /* TextHeaderView.xib */,
+				44610B7124E3770B00216775 /* CharsOccurenceHeader.xib */,
 			);
 			path = SectionHeaders;
 			sourceTree = "<group>";
@@ -306,8 +312,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44610B7224E3770B00216775 /* CharsOccurenceHeader.xib in Resources */,
 				444D510924E1293000FB2400 /* LaunchScreen.storyboard in Resources */,
-				448D900C24E35B690091FF27 /* CharsOccurenceHeader.xib in Resources */,
+				448D900C24E35B690091FF27 /* TextHeaderView.xib in Resources */,
 				444D510624E1293000FB2400 /* Assets.xcassets in Resources */,
 				444D510424E1292D00FB2400 /* Auth.storyboard in Resources */,
 				444D512024E14BFE00FB2400 /* Main.storyboard in Resources */,
@@ -370,6 +377,7 @@
 				448D900424E32DE10091FF27 /* CharTableViewCell.swift in Sources */,
 				444D511924E12B8000FB2400 /* APIManager.swift in Sources */,
 				444D510124E1292D00FB2400 /* ViewController.swift in Sources */,
+				44610B7024E373AE00216775 /* TextHeaderView.swift in Sources */,
 				444D511424E12ACB00FB2400 /* AuthViewController.swift in Sources */,
 				444D512424E1B1C900FB2400 /* OccurenceViewController.swift in Sources */,
 				448D900624E358C90091FF27 /* ErrorAlertManager.swift in Sources */,
